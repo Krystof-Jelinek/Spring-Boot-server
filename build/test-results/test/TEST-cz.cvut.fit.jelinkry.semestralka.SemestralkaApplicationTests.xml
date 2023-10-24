@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-21T18:01:26" hostname="DESKTOP-OJPVQMS" time="1.651">
+  <properties/>
+  <testcase name="contextLoads()" classname="cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests" time="1.651"/>
+  <system-out><![CDATA[20:01:23.833 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests]: SemestralkaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:01:24.059 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration cz.cvut.fit.jelinkry.semestralka.SemestralkaApplication for test class cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.5)
+
+2023-10-21T20:01:25.358+02:00  INFO 110909 --- [    Test worker] c.c.f.j.s.SemestralkaApplicationTests    : Starting SemestralkaApplicationTests using Java 19.0.2 with PID 110909 (started by krystof in /home/krystof/semestralka)
+2023-10-21T20:01:25.360+02:00  INFO 110909 --- [    Test worker] c.c.f.j.s.SemestralkaApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2023-10-21T20:01:26.251+02:00  INFO 110909 --- [    Test worker] c.c.f.j.s.SemestralkaApplicationTests    : Started SemestralkaApplicationTests in 1.803 seconds (process running for 4.99)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
