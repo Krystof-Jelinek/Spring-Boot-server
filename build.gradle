@@ -19,6 +19,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.springframework', name: 'spring-context', version: '6.0.13'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '6.3.1.Final'
+    implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '3.1.5'
+    runtimeOnly group: 'com.h2database', name: 'h2', version: '2.2.224'
+
 }
 
 tasks.named('test') {
