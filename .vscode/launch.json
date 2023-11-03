@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SemestralkaApplication<tjv_semestralka>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "cz.cvut.fit.SemestralkaApplication",
+            "projectName": "tjv_semestralka",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

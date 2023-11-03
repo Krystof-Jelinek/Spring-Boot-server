@@ -7,10 +7,27 @@ import java.sql.Date;
 
 @Entity
 public class Employee implements EntityWithId<Long>{
+    @Id
     private Long id;
     private String firstName;
     private String lastName;
     private Date birthDate;
+
+    public Employee(){
+    }
+
+    public Employee(Long id, String fname, String lname, Date birth){
+        this.id = id;
+        this.firstName = fname;
+        this. lastName = lname;
+        this.birthDate = birth;
+    }
+
+    public Employee(String fname, String lname, Date birth){
+        this.firstName = fname;
+        this. lastName = lname;
+        this.birthDate = birth;
+    }
 
     @Override
     public Long getId() {
