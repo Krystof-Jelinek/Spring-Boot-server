@@ -1,19 +1,30 @@
 package cz.cvut.fit.jelinkry.semestralka.domain;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table
 public class Order implements EntityWithId<Long>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int cost;
     private Date date;
+    
+    @ManyToOne
+    private Vehicle vehicle;
+    @ManyToMany(mappedBy = "orders")
+    private Set<Employee> employees = new HashSet<>();
 
     public Order(){
     }

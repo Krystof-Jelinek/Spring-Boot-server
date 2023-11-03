@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 import cz.cvut.fit.jelinkry.semestralka.domain.Employee;
 import cz.cvut.fit.jelinkry.semestralka.repository.EmployeeRepository;
 
-@Service
-public class EmployeeService {
 
+@Service
+public class EmployeeService{
+    //TODO implements crudservice
+    
     private final EmployeeRepository employeeRepository;
 
     //@Autowired

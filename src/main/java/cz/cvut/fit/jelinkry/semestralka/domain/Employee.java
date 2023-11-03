@@ -3,10 +3,12 @@ package cz.cvut.fit.jelinkry.semestralka.domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
-//@Table
+@Table
 public class Employee implements EntityWithId<Long>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +16,13 @@ public class Employee implements EntityWithId<Long>{
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
+
+    
+    @ManyToMany
+    @JoinTable(name = "employee_order",
+               joinColumns = @JoinColumn(name = "employee_id"),
+               inverseJoinColumns = @JoinColumn(name = "order_id"))
+    private Set<Order> orders = new HashSet<>();
 
     public Employee(){
     }
