@@ -3,11 +3,14 @@ package cz.cvut.fit.jelinkry.semestralka.domain;
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Order implements EntityWithId<Long>{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int cost;
     private Date date;

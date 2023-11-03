@@ -2,28 +2,30 @@ package cz.cvut.fit.jelinkry.semestralka.domain;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 
 @Entity
+//@Table
 public class Employee implements EntityWithId<Long>{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
-    private Date birthDate;
+    private LocalDate birthDate;
 
     public Employee(){
     }
 
-    public Employee(Long id, String fname, String lname, Date birth){
+    public Employee(Long id, String fname, String lname, LocalDate birth){
         this.id = id;
         this.firstName = fname;
         this. lastName = lname;
         this.birthDate = birth;
     }
 
-    public Employee(String fname, String lname, Date birth){
+    public Employee(String fname, String lname, LocalDate birth){
         this.firstName = fname;
         this. lastName = lname;
         this.birthDate = birth;
@@ -54,11 +56,11 @@ public class Employee implements EntityWithId<Long>{
         this.lastName = lastName;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
