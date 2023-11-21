@@ -16,6 +16,7 @@ public class SemestralkaApplication {
 		tmp.setLastName("prvni");
 		Long neco = 50L;
 		tmp.setId(neco);
+
 	}
 
 }

@@ -1,13 +1,16 @@
 package cz.cvut.fit.jelinkry.semestralka.domain;
 
-import java.sql.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+
+
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -19,23 +22,28 @@ public class Order implements EntityWithId<Long>{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int cost;
-    private Date date;
+    private LocalDate date;
     
     @ManyToOne
     private Vehicle vehicle;
-    @ManyToMany(mappedBy = "orders")
-    private Set<Employee> employees = new HashSet<>();
+    @ManyToMany
+    @JoinTable(
+        name = "employee_order",
+        joinColumns = @JoinColumn(name = "order_id"),
+        inverseJoinColumns = @JoinColumn(name = "employee_id")
+    )
+    private List<Employee> employees;
 
     public Order(){
     }
     
-    public Order(Long id, int cost, Date date){
+    public Order(Long id, int cost, LocalDate date){
         this.id = id;
         this.cost = cost;
         this.date = date;
     }
 
-    public Order(int cost, Date date){
+    public Order(int cost, LocalDate date){
         this.cost = cost;
         this.date = date;
     }
@@ -57,11 +65,11 @@ public class Order implements EntityWithId<Long>{
         this.cost = cost;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 }

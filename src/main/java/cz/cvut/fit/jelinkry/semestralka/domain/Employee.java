@@ -3,8 +3,7 @@ package cz.cvut.fit.jelinkry.semestralka.domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 
 @Entity
@@ -18,11 +17,8 @@ public class Employee implements EntityWithId<Long>{
     private LocalDate birthDate;
 
     
-    @ManyToMany
-    @JoinTable(name = "employee_order",
-               joinColumns = @JoinColumn(name = "employee_id"),
-               inverseJoinColumns = @JoinColumn(name = "order_id"))
-    private Set<Order> orders = new HashSet<>();
+    @ManyToMany(mappedBy = "employees")
+    private List<Order> orders;
 
     public Employee(){
     }
