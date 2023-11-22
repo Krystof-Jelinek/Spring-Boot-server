@@ -9,14 +9,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "order") //Order is key word so it create a colision here
 public class Order implements EntityWithId<Long>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,12 +24,8 @@ public class Order implements EntityWithId<Long>{
     
     @ManyToOne
     private Vehicle vehicle;
+
     @ManyToMany
-    @JoinTable(
-        name = "employee_order",
-        joinColumns = @JoinColumn(name = "order_id"),
-        inverseJoinColumns = @JoinColumn(name = "employee_id")
-    )
     private List<Employee> employees;
 
     public Order(){
