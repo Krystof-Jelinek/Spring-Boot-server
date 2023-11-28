@@ -1,6 +1,7 @@
 package cz.cvut.fit.jelinkry.semestralka.controller;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,19 +22,26 @@ public class EmployeeController {
     
     @GetMapping("/employee/{id}")
     public Employee getEmployee(@PathVariable Long id){
-        return employeeService.getEmployee(id);
+        Optional<Employee> tmp = employeeService.readById(id);
+        if(tmp.isPresent()){
+            return tmp.get();
+        }
+        else{
+            return tmp.get();
+        }
     }
 
     @GetMapping("/employee")
     public Iterable<Employee> getAllEmployee(){
-        return employeeService.getAllEmployee();
+        return employeeService.readAll();
     }
 
     @GetMapping("/")
     public String tmp(){
-        employeeService.create_employee(new Employee(1L,"petr", "jeden" , LocalDate.of(2002,12,12)));
-        employeeService.create_employee(new Employee(2L,"petr", "dva" , LocalDate.of(2002,12,12)));
-        employeeService.create_employee(new Employee(3L,"petr", "tri" , LocalDate.of(2002,12,12)));
+        employeeService.create(new Employee(1L,"petr", "jeden" , LocalDate.of(2002,12,12)));
+        employeeService.create(new Employee(2L,"petr", "dva" , LocalDate.of(2002,12,12)));
+        employeeService.create(new Employee(3L,"petr", "tri" , LocalDate.of(2002,12,12)));
+
         return "Hello World";
     }
 

@@ -14,7 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "order") //Order is key word so it create a colision here
+@Table(name = "orderNotKeyword") //Order is key word so it create a colision here
 public class Order implements EntityWithId<Long>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

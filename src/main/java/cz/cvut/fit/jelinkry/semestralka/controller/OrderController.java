@@ -21,19 +21,20 @@ public class OrderController {
 
     @GetMapping("/order/{id}")
     public Order getOrder(@PathVariable Long id){
-        return orderService.getOrder(id);
+        return orderService.readById(id).get();
     }
 
+    
     @GetMapping("/order")
     public Iterable<Order> getAllOrders(){
-        return orderService.getAllOrders();
+        return orderService.readAll();
     }
 
     @GetMapping("/idk")
     public String tmp(){
-        orderService.create_order(new Order(1L, 2000,LocalDate.of(2000, 1, 1)));
-        orderService.create_order(new Order(2L, 2000,LocalDate.of(2000, 1, 1)));
-        orderService.create_order(new Order(3L, 2000,LocalDate.of(2000, 1, 1)));
+        orderService.create(new Order(1L, 2000,LocalDate.of(2000, 1, 1)));
+        orderService.create(new Order(2L, 2000,LocalDate.of(2000, 1, 1)));
+        orderService.create(new Order(3L, 2000,LocalDate.of(2000, 1, 1)));
         return "Hello World";
     }
 }

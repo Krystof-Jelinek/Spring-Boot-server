@@ -1,8 +1,8 @@
 package cz.cvut.fit.jelinkry.semestralka.service;
 
-import org.springframework.stereotype.Service;
+import cz.cvut.fit.jelinkry.semestralka.domain.Vehicle;
 
-@Service
-public class VehicleService {
-    //TODO implements crudservice
-}
+public interface VehicleService extends CrudService<Vehicle, Long>{
+
+    
+} 
