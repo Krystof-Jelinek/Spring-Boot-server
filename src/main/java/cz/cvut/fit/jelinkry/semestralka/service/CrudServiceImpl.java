@@ -29,7 +29,11 @@ public abstract class CrudServiceImpl<T extends EntityWithId<ID> , ID>  implemen
 
     @Override
     public void update(ID id, T e) {
-
+        if (getRepository().existsById(id)) {
+            getRepository().save(e);
+        } else {
+            throw new IllegalArgumentException("Entity with ID " + id + " not found");
+        }
     }
 
     @Override
