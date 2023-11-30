@@ -1,13 +1,12 @@
 package cz.cvut.fit.jelinkry.semestralka.controller;
 
-import org.springframework.stereotype.Controller;
-
 import cz.cvut.fit.jelinkry.semestralka.domain.Vehicle;
 import cz.cvut.fit.jelinkry.semestralka.service.VehicleService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
-@Controller
+@RestController
 public class VehicleController {
     private final VehicleService vehicleService;
 

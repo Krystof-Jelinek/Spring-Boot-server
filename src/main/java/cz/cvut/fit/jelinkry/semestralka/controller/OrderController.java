@@ -2,14 +2,14 @@ package cz.cvut.fit.jelinkry.semestralka.controller;
 
 import java.time.LocalDate;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import cz.cvut.fit.jelinkry.semestralka.domain.Order;
 import cz.cvut.fit.jelinkry.semestralka.service.OrderService;
 
-@Controller
+@RestController
 public class OrderController {
     
     private final OrderService orderService;
