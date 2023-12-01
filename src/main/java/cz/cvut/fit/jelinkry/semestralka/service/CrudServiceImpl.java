@@ -10,9 +10,8 @@ public abstract class CrudServiceImpl<T extends EntityWithId<ID> , ID>  implemen
     @Override
     public T create(T e) {
         if (getRepository().existsById(e.getId())){
-            //throw new IllegalArgumentException();
             System.out.println("this was already added");
-            return e;
+            throw new IllegalArgumentException("entity with this id already exists in the database");
         }
         return getRepository().save(e);
     }
@@ -38,6 +37,9 @@ public abstract class CrudServiceImpl<T extends EntityWithId<ID> , ID>  implemen
 
     @Override
     public void deleteById(ID id) {
+        if (!getRepository().existsById(id)){
+            throw new IllegalArgumentException("Entity with ID " + id + " not found");
+        }
         getRepository().deleteById(id);
     }
 

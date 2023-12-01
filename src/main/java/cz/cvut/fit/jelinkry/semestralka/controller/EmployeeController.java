@@ -1,6 +1,5 @@
 package cz.cvut.fit.jelinkry.semestralka.controller;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
@@ -27,18 +26,24 @@ public class EmployeeController {
     }
 
     @PostMapping("/employee")
-    public Employee create(@RequestBody Employee data){
-        return employeeService.create(data);
+    public ResponseEntity<Employee> createEmployee(@RequestBody Employee data){
+        try{
+            employeeService.create(data);
+        }
+        catch(IllegalArgumentException ex){
+            return ResponseEntity.badRequest().build();
+        }
+        return ResponseEntity.ok().build();
     }
     
     @GetMapping("/employee/{id}")
-    public Employee getEmployee(@PathVariable Long id){
+    public ResponseEntity<Employee> getEmployee(@PathVariable Long id){
         Optional<Employee> tmp = employeeService.readById(id);
         if(tmp.isPresent()){
-            return tmp.get();
+            return ResponseEntity.ok(tmp.get());
         }
         else{
-            return tmp.get();
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -47,25 +52,29 @@ public class EmployeeController {
         return employeeService.readAll();
     }
 
-    @GetMapping("/create")
-    public String tmp(){
-        employeeService.create(new Employee(1L,"petr", "jeden" , LocalDate.of(2002,12,12)));
-        employeeService.create(new Employee(2L,"petr", "dva" , LocalDate.of(2002,12,12)));
-        employeeService.create(new Employee(3L,"petr", "tri" , LocalDate.of(2002,12,12)));
-
-        return "Hello World";
-    }
-
     @PutMapping("/employee/{id}")
     public ResponseEntity<String> modifyEmployee(@PathVariable Long id, @RequestBody Employee data) {
-        employeeService.update(id, data);
+        if(id != data.getId()){
+            return ResponseEntity.badRequest().body("You cant modify the id of employee");
+        }
+        try{
+            employeeService.update(id, data);
+        }
+        catch(IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
         return ResponseEntity.ok("employee got modified succesfully");
     }
 
     @DeleteMapping("employee/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable Long id){
-        employeeService.deleteById(id);
-        return ResponseEntity.ok("employee with id: " + id + "deleted succesfully");
+        try{
+            employeeService.deleteById(id);
+        }
+        catch(IllegalArgumentException e){
+            return ResponseEntity.badRequest().body("There is no employee with this id: " + id);
+        }
+        return ResponseEntity.ok("employee with id: " + id + " deleted succesfully");
     }
 
 }
