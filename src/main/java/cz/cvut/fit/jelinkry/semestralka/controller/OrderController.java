@@ -3,6 +3,7 @@ package cz.cvut.fit.jelinkry.semestralka.controller;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import cz.cvut.fit.jelinkry.semestralka.domain.Order;
 import cz.cvut.fit.jelinkry.semestralka.service.OrderService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8080")
 public class OrderController {
     
     private final OrderService orderService;

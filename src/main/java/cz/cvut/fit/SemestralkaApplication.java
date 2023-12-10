@@ -8,7 +8,7 @@ public class SemestralkaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SemestralkaApplication.class, args);
-		System.out.println("Hello World!");
+		System.out.println("Server is running");
 	}
 
 }

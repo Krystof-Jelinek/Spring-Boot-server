@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 @Table
@@ -17,7 +19,8 @@ public class Employee implements EntityWithId<Long>{
     private LocalDate birthDate;
 
     
-    @ManyToMany(mappedBy = "employees")
+    @ManyToMany(mappedBy = "employees", fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Order> orders;
 
     public Employee(){
