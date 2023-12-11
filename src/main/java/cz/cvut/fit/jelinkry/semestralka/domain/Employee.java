@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -17,10 +17,9 @@ public class Employee implements EntityWithId<Long>{
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
-
     
-    @ManyToMany(mappedBy = "employees", fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @ManyToMany(mappedBy = "employees", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"employees", "vehicle"})
     private List<Order> orders;
 
     public Employee(){
@@ -37,6 +36,14 @@ public class Employee implements EntityWithId<Long>{
         this.firstName = fname;
         this. lastName = lname;
         this.birthDate = birth;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

@@ -2,10 +2,8 @@ package cz.cvut.fit.jelinkry.semestralka.domain;
 
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.time.LocalDate;
 
@@ -31,10 +29,13 @@ public class Order implements EntityWithId<Long>{
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "vehicle_id", nullable = false)
+    @JsonManagedReference
+    @JsonIgnoreProperties("orders")
     private Vehicle vehicle;
-
-
-    @ManyToMany
+    
+    
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties("orders")
     private List<Employee> employees;
 
     public Order(){
@@ -49,6 +50,14 @@ public class Order implements EntityWithId<Long>{
     public Order(int cost, LocalDate date){
         this.cost = cost;
         this.dateOfPayment = date;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override

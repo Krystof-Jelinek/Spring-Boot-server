@@ -20,4 +20,10 @@ public class EmployeeServiceImpl extends CrudServiceImpl<Employee, Long> impleme
     protected CrudRepository<Employee, Long> getRepository() {
         return employeeRepository;
     }
+
+    @Override
+    public void updateOnlyEmployeeRelated(Long id, Employee e) {
+        employeeRepository.updateEmployeeInfo(e.getId(), e.getFirstName(), e.getLastName(), e.getBirthDate());
+    }
+    
 }

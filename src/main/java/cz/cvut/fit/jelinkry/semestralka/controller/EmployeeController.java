@@ -1,5 +1,6 @@
 package cz.cvut.fit.jelinkry.semestralka.controller;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,13 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    @PostMapping("/tmp")
+    public Employee toefuk() {
+        Employee tmp = new Employee(25L, "zkouska", "test", LocalDate.of(2002,1,1));
+        
+        return employeeService.create(tmp);
+    }
+    
     
     @PostMapping("/employee")
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee data){
@@ -62,7 +70,7 @@ public class EmployeeController {
             return ResponseEntity.badRequest().body("You cant modify the id of employee");
         }
         try{
-            employeeService.update(id, data);
+            employeeService.updateOnlyEmployeeRelated(id, data);
         }
         catch(IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
