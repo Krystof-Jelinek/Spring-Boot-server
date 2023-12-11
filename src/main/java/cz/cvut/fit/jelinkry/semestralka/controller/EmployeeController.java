@@ -1,6 +1,5 @@
 package cz.cvut.fit.jelinkry.semestralka.controller;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
@@ -59,9 +58,11 @@ public class EmployeeController {
     }
 
     @PutMapping("/employee/{id}")
-    public ResponseEntity<String> modifyEmployee(@PathVariable Long id, @RequestBody Employee data) {
-        if(id != data.getId()){
-            return ResponseEntity.badRequest().body("You cant modify the id of employee");
+    public ResponseEntity<String> modifyEmployee(@PathVariable Long id, @RequestBody EmployeeDTO data) {
+        Optional<Employee> tmp = employeeService.readById(id);
+        
+        if(!(tmp.isPresent())){
+            return ResponseEntity.badRequest().body("This Employee does not exist");
         }
         try{
             employeeService.updateOnlyEmployeeRelated(id, data);

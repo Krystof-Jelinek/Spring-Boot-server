@@ -9,7 +9,6 @@ import org.hibernate.annotations.Parameter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -35,7 +34,7 @@ public class Vehicle implements EntityWithId<Long>{
     private String color;
     private int equipmentLevel;
 
-    @OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "vehicle")
     @JsonManagedReference
     @JsonIgnoreProperties({ "vehicle", "employees" })
     private List<Order> orders = new ArrayList<>();

@@ -1,6 +1,7 @@
 package cz.cvut.fit.jelinkry.semestralka.controller;
 
 import cz.cvut.fit.jelinkry.semestralka.domain.Vehicle;
+import cz.cvut.fit.jelinkry.semestralka.domain.VehicleDTO;
 import cz.cvut.fit.jelinkry.semestralka.service.VehicleService;
 
 import java.util.Optional;
@@ -26,9 +27,10 @@ public class VehicleController {
     }
 
     @PostMapping("/vehicle")
-    public ResponseEntity<Vehicle> createVehicle(@RequestBody Vehicle data){
+    public ResponseEntity<Vehicle> createVehicle(@RequestBody VehicleDTO data){
+        Vehicle tmp = new Vehicle(data.getSpz(), data.getColor(), data.getEquipmentLevel());
         try{
-            vehicleService.create(data);
+            vehicleService.create(tmp);
         }
         catch(IllegalArgumentException ex){
             return ResponseEntity.badRequest().build();
@@ -53,12 +55,12 @@ public class VehicleController {
     }
 
     @PutMapping("/vehicle/{id}")
-    public ResponseEntity<String> modifyVehicle(@PathVariable Long id, @RequestBody Vehicle data) {
-        if(id != data.getId()){
-            return ResponseEntity.badRequest().body("You cant modify the id of vehicle");
+    public ResponseEntity<String> modifyVehicle(@PathVariable Long id, @RequestBody VehicleDTO data) {
+        if(!vehicleService.readById(id).isPresent()){
+            return ResponseEntity.badRequest().body("There is no vehicle with this id: " + id);
         }
         try{
-            vehicleService.update(id, data);
+            vehicleService.updateOnlyVehicleRelated(id, data);
         }
         catch(IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());

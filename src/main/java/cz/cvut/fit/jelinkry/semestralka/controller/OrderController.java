@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cz.cvut.fit.jelinkry.semestralka.domain.Order;
+import cz.cvut.fit.jelinkry.semestralka.domain.OrderDTO;
 import cz.cvut.fit.jelinkry.semestralka.service.OrderService;
 
 @RestController
@@ -27,9 +28,11 @@ public class OrderController {
     }
 
     @PostMapping("/order")
-    public ResponseEntity<Order> createOrder(@RequestBody Order data){
+    public ResponseEntity<Order> createOrder(@RequestBody OrderDTO data){
+        Order tmp = new Order(data.getCost(), data.getDateOfPayment());
+
         try{
-            orderService.create(data);
+            orderService.create(tmp);
         }
         catch(IllegalArgumentException ex){
             return ResponseEntity.badRequest().build();
@@ -54,12 +57,12 @@ public class OrderController {
     }
 
     @PutMapping("/order/{id}")
-    public ResponseEntity<String> modifyOrder(@PathVariable Long id, @RequestBody Order data) {
-        if(id != data.getId()){
-            return ResponseEntity.badRequest().body("You cant modify the id of order");
+    public ResponseEntity<String> modifyOrder(@PathVariable Long id, @RequestBody OrderDTO data) {
+        if(!orderService.readById(id).isPresent()){
+            return ResponseEntity.badRequest().body("There is no order with this id");
         }
         try{
-            orderService.update(id, data);
+            orderService.updateOnlyOrderRelated(id, data);
         }
         catch(IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());

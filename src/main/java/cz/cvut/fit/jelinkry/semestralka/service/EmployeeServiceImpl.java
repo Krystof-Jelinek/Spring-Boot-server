@@ -4,6 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import cz.cvut.fit.jelinkry.semestralka.domain.Employee;
+import cz.cvut.fit.jelinkry.semestralka.domain.EmployeeDTO;
 import cz.cvut.fit.jelinkry.semestralka.repository.EmployeeRepository;
 import cz.cvut.fit.jelinkry.semestralka.repository.OrderRepository;
 import jakarta.transaction.Transactional;
@@ -24,8 +25,8 @@ public class EmployeeServiceImpl extends CrudServiceImpl<Employee, Long> impleme
     }
 
     @Override
-    public void updateOnlyEmployeeRelated(Long id, Employee e) {
-        employeeRepository.updateEmployeeInfo(e.getId(), e.getFirstName(), e.getLastName(), e.getBirthDate());
+    public void updateOnlyEmployeeRelated(Long id, EmployeeDTO e) {
+        employeeRepository.updateEmployeeInfo(id , e.getFirstName(), e.getLastName(), e.getBirthDate());
     }
 
     @Transactional
