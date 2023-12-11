@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cz.cvut.fit.jelinkry.semestralka.domain.Employee;
+import cz.cvut.fit.jelinkry.semestralka.domain.EmployeeDTO;
 import cz.cvut.fit.jelinkry.semestralka.service.EmployeeService;
 import org.springframework.web.bind.annotation.PutMapping;
 
@@ -28,18 +29,11 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @PostMapping("/tmp")
-    public Employee toefuk() {
-        Employee tmp = new Employee(25L, "zkouska", "test", LocalDate.of(2002,1,1));
-        
-        return employeeService.create(tmp);
-    }
-    
-    
     @PostMapping("/employee")
-    public ResponseEntity<Employee> createEmployee(@RequestBody Employee data){
+    public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDTO data){
         try{
-            employeeService.create(data);
+            Employee tmp = new Employee(data.getFirstName(), data.getLastName(), data.getBirthDate());
+            employeeService.create(tmp);
         }
         catch(IllegalArgumentException ex){
             return ResponseEntity.badRequest().build();
@@ -81,7 +75,7 @@ public class EmployeeController {
     @DeleteMapping("employee/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable Long id){
         try{
-            employeeService.deleteById(id);
+            employeeService.deleteEmployee(id);
         }
         catch(IllegalArgumentException e){
             return ResponseEntity.badRequest().body("There is no employee with this id: " + id);

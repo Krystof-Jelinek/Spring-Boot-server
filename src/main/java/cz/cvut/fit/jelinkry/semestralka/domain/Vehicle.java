@@ -3,13 +3,15 @@ package cz.cvut.fit.jelinkry.semestralka.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -18,7 +20,16 @@ import jakarta.persistence.Table;
 @Table
 public class Vehicle implements EntityWithId<Long>{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "sequence-generator-vehicle")
+    @GenericGenerator(
+          name = "sequence-generator-vehicle",
+          strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+          parameters = {
+            @Parameter(name = "sequence_name", value = "user_sequence"),
+            @Parameter(name = "initial_value", value = "11"),
+            @Parameter(name = "increment_size", value = "1")
+            }
+    )
     private Long id;
     private String spz;
     private String color;

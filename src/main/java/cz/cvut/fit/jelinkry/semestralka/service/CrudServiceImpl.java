@@ -9,10 +9,11 @@ import cz.cvut.fit.jelinkry.semestralka.domain.EntityWithId;
 public abstract class CrudServiceImpl<T extends EntityWithId<ID> , ID>  implements CrudService<T, ID>{
     @Override
     public T create(T e) {
+        /*
         if (getRepository().existsById(e.getId())){
             System.out.println("this was already added");
             throw new IllegalArgumentException("entity with this id already exists in the database");
-        }
+        }*/
         return getRepository().save(e);
     }
 

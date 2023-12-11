@@ -31,13 +31,17 @@ INSERT INTO order_not_keyword (id, cost, date_of_payment, vehicle_id) VALUES (8,
 INSERT INTO order_not_keyword (id, cost, date_of_payment, vehicle_id) VALUES (9, 40, '2023-02-23', 1);
 INSERT INTO order_not_keyword (id, cost, date_of_payment, vehicle_id) VALUES (10, 95, '2023-08-31', 1);
 
-INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (1 , 5);
-INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (1 , 6);
-INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (1 , 2);
-INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (2 , 5);
-INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (3 , 5);
-INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (2 , 1);
-INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (2 , 8);
-INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (4 , 10);
-INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (5 , 3);
-INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (8 , 9);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (1 , 1);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (2 , 2);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (3 , 3);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (4 , 4);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (5 , 5);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (6 , 6);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (7 , 7);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (8 , 8);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (9 , 9);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (10 , 10);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (10 , 1);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (10 , 2);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (9 , 2);
+INSERT INTO order_not_keyword_employees (orders_id, employees_id) VALUES (8 , 2);

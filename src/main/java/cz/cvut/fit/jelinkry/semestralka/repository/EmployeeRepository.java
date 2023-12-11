@@ -24,4 +24,9 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long>{
         @Param("birthDate") LocalDate birthDate
     );
 
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM ORDER_NOT_KEYWORD_EMPLOYEES WHERE EMPLOYEES_ID = :employeeId", nativeQuery = true)
+    void deleteEmployeeAssociations(@Param("employeeId") Long employeeId);
+
 }

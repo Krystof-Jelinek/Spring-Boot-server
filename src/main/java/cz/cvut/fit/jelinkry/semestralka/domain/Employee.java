@@ -6,19 +6,30 @@ import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 
 @Entity
 @Table
 public class Employee implements EntityWithId<Long>{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "sequence-generator-employee")
+    @GenericGenerator(
+          name = "sequence-generator-employee",
+          strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+          parameters = {
+            @Parameter(name = "sequence_name", value = "user_sequence"),
+            @Parameter(name = "initial_value", value = "11"),
+            @Parameter(name = "increment_size", value = "1")
+            }
+    )
     private Long id;
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
     
-    @ManyToMany(mappedBy = "employees", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "employees", fetch = FetchType.EAGER)
     @JsonIgnoreProperties({"employees", "vehicle"})
     private List<Order> orders;
 
