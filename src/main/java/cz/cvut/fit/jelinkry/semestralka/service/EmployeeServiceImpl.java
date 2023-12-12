@@ -35,7 +35,7 @@ public class EmployeeServiceImpl extends CrudServiceImpl<Employee, Long> impleme
         Employee employee = employeeRepository.findById(id)
         .orElseThrow(() -> new IllegalArgumentException("Employee not found with id: " + id));
 
-        employeeRepository.deleteEmployeeAssociations(id);
+        employeeRepository.deleteAllEmployeeAssociations(id);
 
         employeeRepository.delete(employee);
     }

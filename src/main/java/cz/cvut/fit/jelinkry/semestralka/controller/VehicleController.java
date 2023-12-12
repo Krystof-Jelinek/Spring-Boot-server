@@ -35,6 +35,7 @@ public class VehicleController {
         catch(IllegalArgumentException ex){
             return ResponseEntity.badRequest().build();
         }
+        
         return ResponseEntity.ok().build();
     }
     
@@ -65,6 +66,7 @@ public class VehicleController {
         catch(IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+        
         return ResponseEntity.ok("vehicle got modified succesfully");
     }
 
@@ -76,6 +78,7 @@ public class VehicleController {
         catch(IllegalArgumentException e){
             return ResponseEntity.badRequest().body("There is no vehicle with this id: " + id);
         }
+        
         return ResponseEntity.ok("vehicle with id: " + id + " deleted succesfully");
     }
     

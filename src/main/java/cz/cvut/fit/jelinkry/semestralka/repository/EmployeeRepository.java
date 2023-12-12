@@ -27,6 +27,17 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long>{
     @Transactional
     @Modifying
     @Query(value = "DELETE FROM ORDER_NOT_KEYWORD_EMPLOYEES WHERE EMPLOYEES_ID = :employeeId", nativeQuery = true)
-    void deleteEmployeeAssociations(@Param("employeeId") Long employeeId);
+    void deleteAllEmployeeAssociations(@Param("employeeId") Long employeeId);
+
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO ORDER_NOT_KEYWORD_EMPLOYEES (ORDERS_ID, EMPLOYEES_ID) SELECT :orderId, :employeeId FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM ORDER_NOT_KEYWORD_EMPLOYEES WHERE ORDERS_ID = :orderId AND EMPLOYEES_ID = :employeeId)", nativeQuery = true)
+    void addEmployeeAssociation(@Param("employeeId") Long employeeId, @Param("orderId") Long orderId);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM ORDER_NOT_KEYWORD_EMPLOYEES WHERE EMPLOYEES_ID = :employeeId AND ORDERS_ID = :orderId", nativeQuery = true)
+    void removeEmployeeAssociations(@Param("employeeId") Long employeeId, @Param("orderId") Long orderId);
+
 
 }

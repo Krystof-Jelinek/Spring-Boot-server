@@ -28,7 +28,7 @@ public class Order implements EntityWithId<Long>{
           name = "sequence-generator-order",
           strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
           parameters = {
-            @Parameter(name = "sequence_name", value = "user_sequence"),
+            @Parameter(name = "sequence_name", value = "order_sequence"),
             @Parameter(name = "initial_value", value = "11"),
             @Parameter(name = "increment_size", value = "1")
             }
