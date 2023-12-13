@@ -28,7 +28,7 @@ public class VehicleOrderRelationController {
             return ResponseEntity.badRequest().body("There is no order or vehicle with this id");
         }
 
-        return ResponseEntity.ok().body("Order with id" + orderId + " was added to vehicle with id "+ vehicleId);
+        return ResponseEntity.ok().body("Order with id " + orderId + " was added to vehicle with id "+ vehicleId);
     }
 
     @DeleteMapping("/vehicle/order/{vehicleId}/{orderId}")
@@ -40,6 +40,6 @@ public class VehicleOrderRelationController {
             return ResponseEntity.badRequest().body("There is no order or vehicle with this id");
         }
 
-        return ResponseEntity.ok().body("Vehicle with id" + vehicleId + " was removed from order with id "+ orderId);
+        return ResponseEntity.ok().body("Vehicle with id " + vehicleId + " was removed from order with id "+ orderId);
     }
 }

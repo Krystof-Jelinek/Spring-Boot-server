@@ -31,7 +31,7 @@ public class VehicleOrderRelationServiceImpl implements VehicleOrderRelationServ
             throw new IllegalArgumentException("Entity with ID " + vehicleId + "or" + orderId + " not found");
         }
 
-        orderRepository.removeVehicleOrderAssociation(orderId);
+        orderRepository.removeVehicleOrderAssociation(orderId, vehicleId);
 
     }
 

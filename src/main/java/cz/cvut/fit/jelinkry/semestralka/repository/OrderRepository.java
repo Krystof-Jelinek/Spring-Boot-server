@@ -35,6 +35,6 @@ public interface OrderRepository extends CrudRepository<Order, Long>{
 
     @Transactional
     @Modifying
-    @Query(value = "UPDATE ORDER_NOT_KEYWORD o SET o.VEHICLE_ID = null WHERE o.ID = :orderId", nativeQuery = true)
-    void removeVehicleOrderAssociation(@Param("orderId") Long orderId);
+    @Query(value = "UPDATE ORDER_NOT_KEYWORD o SET o.VEHICLE_ID = null WHERE o.ID = :orderId AND o.VEHICLE_ID = :vehicleId", nativeQuery = true)
+    void removeVehicleOrderAssociation(@Param("orderId") Long orderId, @Param("vehicleId") Long vehicleId);
 }
