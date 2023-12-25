@@ -65,10 +65,6 @@ public class Employee implements EntityWithId<Long>{
     public String getFirstName() {
         return firstName;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
     
     public void setFirstName(String firstName) {
         this.firstName = firstName;

@@ -76,10 +76,6 @@ public class Order implements EntityWithId<Long>{
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public int getCost() {
         return cost;
     }

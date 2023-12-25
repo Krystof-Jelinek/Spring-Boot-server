@@ -31,15 +31,15 @@ public class VehicleOrderRelationController {
         return ResponseEntity.ok().body("Order with id " + orderId + " was added to vehicle with id "+ vehicleId);
     }
 
-    @DeleteMapping("/vehicle/order/{vehicleId}/{orderId}")
-    public ResponseEntity<String> removeVehicleOrderRelation(@PathVariable Long vehicleId, @PathVariable Long orderId){
+    @DeleteMapping("/vehicle/order/{orderId}")
+    public ResponseEntity<String> removeVehicleOrderRelation(@PathVariable Long orderId){
         try{
-            vehicleOrderRelationService.RemoveVehicleFromOrder(vehicleId, orderId);
+            vehicleOrderRelationService.RemoveVehicleFromOrder(orderId);
         }
         catch(IllegalArgumentException e){
-            return ResponseEntity.badRequest().body("There is no order or vehicle with this id");
+            return ResponseEntity.badRequest().body("There is no order with this id");
         }
 
-        return ResponseEntity.ok().body("Vehicle with id " + vehicleId + " was removed from order with id "+ orderId);
+        return ResponseEntity.ok().body("Vehicle was removed from order with id "+ orderId);
     }
 }

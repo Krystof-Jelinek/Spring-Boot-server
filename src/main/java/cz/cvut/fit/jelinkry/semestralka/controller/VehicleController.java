@@ -81,5 +81,11 @@ public class VehicleController {
         
         return ResponseEntity.ok("vehicle with id: " + id + " deleted succesfully");
     }
+
+    @DeleteMapping("vehicle")
+    public ResponseEntity<String> deleteVehicleThatAreNotInAnyOrder(){
+        vehicleService.deleteVehiclesThatAreNotInAnyOrder();
+        return ResponseEntity.ok("vehicle that were never borrowed to anyone got deleted succesfully");
+    }
     
 }

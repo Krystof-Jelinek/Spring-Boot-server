@@ -60,10 +60,6 @@ public class Vehicle implements EntityWithId<Long>{
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getSpz() {
         return spz;
     }

@@ -7,4 +7,5 @@ public interface VehicleService extends CrudService<Vehicle, Long>{
 
     public void setVehicleWithIdToNull(Long id);
     public void updateOnlyVehicleRelated(Long id, VehicleDTO vehicle);
+    public void deleteVehiclesThatAreNotInAnyOrder();
 } 

@@ -45,6 +45,11 @@ public class VehicleServiceImpl extends CrudServiceImpl<Vehicle, Long> implement
         vehicleRepository.updateVehicleInfo(id, vehicle.getSpz(), vehicle.getColor(), vehicle.getEquipmentLevel());
     }
 
+    public void deleteVehiclesThatAreNotInAnyOrder(){
+        vehicleRepository.deleteVehiclesThatAreNotInAnyOrder();
+    }
+
+
 
 
 
