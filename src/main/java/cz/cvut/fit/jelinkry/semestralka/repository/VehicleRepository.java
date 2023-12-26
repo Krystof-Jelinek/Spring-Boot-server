@@ -29,7 +29,7 @@ public interface VehicleRepository extends CrudRepository<Vehicle, Long>{
 
     @Transactional
     @Modifying
-    @Query(value = "DELETE FROM VEHICLE v WHERE v.id NOT IN (SELECT DISTINCT o.vehicle_id FROM ORDER_NOT_KEYWORD o WHERE o.vehicle_id IS NOT NULL)", nativeQuery = true)
+    @Query("DELETE FROM Vehicle v WHERE v.id NOT IN (SELECT DISTINCT o.vehicle.id FROM Order o WHERE o.vehicle.id IS NOT NULL)")
     void deleteVehiclesThatAreNotInAnyOrder();
 
 
