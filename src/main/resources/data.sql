@@ -1,3 +1,12 @@
+DELETE FROM order_not_keyword_employees;
+DELETE FROM order_not_keyword;
+DELETE FROM vehicle;
+DELETE FROM employee;
+
+ALTER SEQUENCE employee_sequence RESTART WITH 11;
+ALTER SEQUENCE order_sequence RESTART WITH 11;
+ALTER SEQUENCE vehicle_sequence RESTART WITH 11;
+
 INSERT INTO Employee (id, first_name, last_name, birth_date) VALUES (1, 'John', 'Doe', '1990-01-15');
 INSERT INTO Employee (id, first_name, last_name, birth_date) VALUES (2, 'Jane', 'Smith', '1985-07-22');
 INSERT INTO Employee (id, first_name, last_name, birth_date) VALUES (3, 'Alice', 'Johnson', '1988-03-10');

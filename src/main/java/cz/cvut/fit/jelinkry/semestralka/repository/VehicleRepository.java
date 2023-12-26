@@ -11,6 +11,11 @@ import jakarta.transaction.Transactional;
 
 @Repository
 public interface VehicleRepository extends CrudRepository<Vehicle, Long>{
+
+    @Override
+    @Query("SELECT v FROM Vehicle v ORDER BY v.id ASC")
+    Iterable<Vehicle> findAll();
+
     
     @Transactional
     @Modifying

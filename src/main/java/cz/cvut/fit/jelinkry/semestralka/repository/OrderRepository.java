@@ -14,6 +14,10 @@ import jakarta.transaction.Transactional;
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long>{
 
+    @Override
+    @Query("SELECT o FROM Order o ORDER BY o.id ASC")
+    Iterable<Order> findAll();
+
     @Transactional
     @Modifying
     @Query("UPDATE Order o SET o.cost = :cost, o.dateOfPayment = :dateOfPayment WHERE o.id = :orderId")
@@ -30,11 +34,11 @@ public interface OrderRepository extends CrudRepository<Order, Long>{
 
     @Transactional
     @Modifying
-    @Query(value = "UPDATE ORDER_NOT_KEYWORD o SET o.VEHICLE_ID = :vehicleId WHERE o.ID = :orderId", nativeQuery = true)
+    @Query(value = "UPDATE ORDER_NOT_KEYWORD SET VEHICLE_ID = :vehicleId WHERE ID = :orderId", nativeQuery = true)
     void modifyVehicleOrderAssociation(@Param("vehicleId") Long vehicleId, @Param("orderId") Long orderId);
 
     @Transactional
     @Modifying
-    @Query(value = "UPDATE ORDER_NOT_KEYWORD o SET o.VEHICLE_ID = null WHERE o.ID = :orderId", nativeQuery = true)
+    @Query(value = "UPDATE ORDER_NOT_KEYWORD SET VEHICLE_ID = null WHERE ID = :orderId", nativeQuery = true)
     void removeVehicleOrderAssociation(@Param("orderId") Long orderId);
 }

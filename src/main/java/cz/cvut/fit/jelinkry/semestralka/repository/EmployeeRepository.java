@@ -13,6 +13,10 @@ import jakarta.transaction.Transactional;
 
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Long>{
+
+    @Override
+    @Query("SELECT e FROM Employee e ORDER BY e.id ASC")
+    Iterable<Employee> findAll();
     
     @Transactional
     @Modifying
@@ -31,7 +35,9 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long>{
 
     @Transactional
     @Modifying
-    @Query(value = "INSERT INTO ORDER_NOT_KEYWORD_EMPLOYEES (ORDERS_ID, EMPLOYEES_ID) SELECT :orderId, :employeeId FROM DUAL WHERE NOT EXISTS (SELECT 1 FROM ORDER_NOT_KEYWORD_EMPLOYEES WHERE ORDERS_ID = :orderId AND EMPLOYEES_ID = :employeeId)", nativeQuery = true)
+    @Query(value = "INSERT INTO ORDER_NOT_KEYWORD_EMPLOYEES (ORDERS_ID, EMPLOYEES_ID) " +
+        "SELECT :orderId, :employeeId " +
+        "WHERE NOT EXISTS (SELECT 1 FROM ORDER_NOT_KEYWORD_EMPLOYEES WHERE ORDERS_ID = :orderId AND EMPLOYEES_ID = :employeeId)", nativeQuery = true)
     void addEmployeeAssociation(@Param("employeeId") Long employeeId, @Param("orderId") Long orderId);
 
     @Transactional

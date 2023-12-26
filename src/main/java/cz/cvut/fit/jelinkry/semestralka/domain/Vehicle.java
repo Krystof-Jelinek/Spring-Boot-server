@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -34,7 +35,7 @@ public class Vehicle implements EntityWithId<Long>{
     private String color;
     private int equipmentLevel;
 
-    @OneToMany(mappedBy = "vehicle")
+    @OneToMany(mappedBy = "vehicle", fetch = FetchType.EAGER)
     @JsonManagedReference
     @JsonIgnoreProperties({ "vehicle", "employees" })
     private List<Order> orders = new ArrayList<>();
