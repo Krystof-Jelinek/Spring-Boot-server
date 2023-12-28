@@ -30,15 +30,16 @@ public class EmployeeController {
 
     @PostMapping("/employee")
     public ResponseEntity<Employee> createEmployee(@RequestBody EmployeeDTO data){
+        Employee ret;
         try{
             Employee tmp = new Employee(data.getFirstName(), data.getLastName(), data.getBirthDate());
-            employeeService.create(tmp);
+            ret = employeeService.create(tmp);
         }
         catch(IllegalArgumentException ex){
             return ResponseEntity.badRequest().build();
         }
         
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(ret);
     }
     
     @GetMapping("/employee/{id}")
@@ -71,7 +72,6 @@ public class EmployeeController {
         catch(IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-        
 
         return ResponseEntity.ok("employee got modified succesfully");
     }
@@ -84,7 +84,6 @@ public class EmployeeController {
         catch(IllegalArgumentException e){
             return ResponseEntity.badRequest().body("There is no employee with this id: " + id);
         }
-        
 
         return ResponseEntity.ok("employee with id: " + id + " deleted succesfully");
     }

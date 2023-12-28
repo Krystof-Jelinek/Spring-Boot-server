@@ -18,7 +18,7 @@ public class EmployeeOrderRelationServiceImpl implements EmployeeOrderRelationSe
     @Override
     public void addOrderToEmployee(Long employeeId, Long orderId){
         if((!employeeRepository.findById(employeeId).isPresent()) || (!orderRepository.findById(orderId).isPresent())){
-            throw new IllegalArgumentException("Entity with ID " + employeeId + "or" + orderId + " not found");
+            throw new IllegalArgumentException("Entity with ID " + employeeId + " or " + orderId + " not found");
         }
 
         employeeRepository.addEmployeeAssociation(employeeId, orderId);
@@ -28,7 +28,7 @@ public class EmployeeOrderRelationServiceImpl implements EmployeeOrderRelationSe
     @Override
     public void removeOrderFromEmployee(Long employeeId, Long orderId){
         if((!employeeRepository.findById(employeeId).isPresent()) || (!orderRepository.findById(orderId).isPresent())){
-            throw new IllegalArgumentException("Entity with ID " + employeeId + "or" + orderId + " not found");
+            throw new IllegalArgumentException("Entity with ID " + employeeId + " or " + orderId + " not found");
         }
         employeeRepository.removeEmployeeAssociations(employeeId, orderId);
     }

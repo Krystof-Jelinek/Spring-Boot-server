@@ -30,16 +30,17 @@ public class OrderController {
     @PostMapping("/order")
     public ResponseEntity<Order> createOrder(@RequestBody OrderDTO data){
         Order tmp = new Order(data.getCost(), data.getDateOfPayment());
+        Order ret;
 
         try{
-            orderService.create(tmp);
+            ret = orderService.create(tmp);
         }
         catch(IllegalArgumentException ex){
             return ResponseEntity.badRequest().build();
         }
         
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(ret);
     }
     
     @GetMapping("/order/{id}")

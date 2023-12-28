@@ -10,9 +10,13 @@ import org.springframework.stereotype.Repository;
 
 import cz.cvut.fit.jelinkry.semestralka.domain.Order;
 import jakarta.transaction.Transactional;
+import java.util.List;
+
 
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long>{
+
+    List<Order> findByCost(int cost);
 
     @Override
     @Query("SELECT o FROM Order o ORDER BY o.id ASC")

@@ -29,14 +29,16 @@ public class VehicleController {
     @PostMapping("/vehicle")
     public ResponseEntity<Vehicle> createVehicle(@RequestBody VehicleDTO data){
         Vehicle tmp = new Vehicle(data.getSpz(), data.getColor(), data.getEquipmentLevel());
+        Vehicle ret;
+
         try{
-            vehicleService.create(tmp);
+            ret = vehicleService.create(tmp);
         }
         catch(IllegalArgumentException ex){
             return ResponseEntity.badRequest().build();
         }
         
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(ret);
     }
     
     @GetMapping("/vehicle/{id}")
