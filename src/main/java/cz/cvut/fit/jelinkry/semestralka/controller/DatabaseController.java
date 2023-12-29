@@ -3,6 +3,7 @@ package cz.cvut.fit.jelinkry.semestralka.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,10 +17,22 @@ public class DatabaseController {
     private DatabaseService databaseService;
 
     @PostMapping("/database")
-    public ResponseEntity<String> executeDataScript() {
+    public ResponseEntity<String> executeInsertScript() {
         try{
-            databaseService.executeDataScript();
-            return ResponseEntity.ok("Data script executed successfully");
+            databaseService.executeInsertScript();
+            return ResponseEntity.ok("Insert script executed successfully");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().body("Failed to execute data script: " + e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/database")
+    public ResponseEntity<String> executeCleanScript() {
+        try{
+            databaseService.executeCleanScript();
+            return ResponseEntity.ok("Clean script executed successfully");
         }
         catch(Exception e){
             e.printStackTrace();

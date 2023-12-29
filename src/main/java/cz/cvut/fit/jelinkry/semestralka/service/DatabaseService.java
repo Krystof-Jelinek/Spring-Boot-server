@@ -19,17 +19,34 @@ public class DatabaseService {
     private final JdbcTemplate jdbcTemplate;
 
     @Value("classpath:insert_script.sql")
-    private String scriptLocation;
+    private String insertScriptLocation;
+    
+    @Value("classpath:clean_script.sql")
+    private String cleanScriptLocation;
 
     public DatabaseService(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Transactional
-    public void executeDataScript() {
+    public void executeInsertScript() {
         try {
             // Read the content of the SQL script
-            Path path = ResourceUtils.getFile(scriptLocation).toPath();
+            Path path = ResourceUtils.getFile(insertScriptLocation).toPath();
+            String scriptContent = new String(Files.readAllBytes(path));
+
+            // Execute the script using JDBC
+            jdbcTemplate.execute(scriptContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Transactional
+    public void executeCleanScript() {
+        try {
+            // Read the content of the SQL script
+            Path path = ResourceUtils.getFile(cleanScriptLocation).toPath();
             String scriptContent = new String(Files.readAllBytes(path));
 
             // Execute the script using JDBC
