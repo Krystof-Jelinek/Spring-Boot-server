@@ -19,7 +19,7 @@ public class VehicleOrderRelationServiceImpl implements VehicleOrderRelationServ
 
     public void AddVehicleToOrder(Long vehicleId, Long orderId){
         if((!vehicleRepository.findById(vehicleId).isPresent()) || (!orderRepository.findById(orderId).isPresent())){
-            throw new IllegalArgumentException("Entity with ID " + vehicleId + "or" + orderId + " not found");
+            throw new IllegalArgumentException("Entity with ID " + vehicleId + " or " + orderId + " not found");
         }
 
         orderRepository.modifyVehicleOrderAssociation(vehicleId, orderId);
@@ -34,6 +34,5 @@ public class VehicleOrderRelationServiceImpl implements VehicleOrderRelationServ
         orderRepository.removeVehicleOrderAssociation(orderId);
 
     }
-
 
 }

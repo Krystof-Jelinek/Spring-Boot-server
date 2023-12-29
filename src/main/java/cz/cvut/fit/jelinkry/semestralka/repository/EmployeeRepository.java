@@ -45,5 +45,4 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long>{
     @Query(value = "DELETE FROM ORDER_NOT_KEYWORD_EMPLOYEES WHERE EMPLOYEES_ID = :employeeId AND ORDERS_ID = :orderId", nativeQuery = true)
     void removeEmployeeAssociations(@Param("employeeId") Long employeeId, @Param("orderId") Long orderId);
 
-
 }

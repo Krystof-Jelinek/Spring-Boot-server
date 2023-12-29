@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-12-28T14:59:43" hostname="DESKTOP-OJPVQMS" time="0.354">
+  <properties/>
+  <testcase name="isRepositoryEmptyAtInicialization()" classname="cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest" time="0.156"/>
+  <testcase name="findByCostTestWhenRepoEmpty()" classname="cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest" time="0.036"/>
+  <testcase name="findByCostTest()" classname="cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest" time="0.157"/>
+  <system-out><![CDATA[2023-12-28T15:59:42.390+01:00  INFO 122700 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest]: EmployeeRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-12-28T15:59:42.435+01:00  INFO 122700 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration cz.cvut.fit.SemestralkaApplication for test class cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.7)
+
+2023-12-28T15:59:42.493+01:00  INFO 122700 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : Starting EmployeeRepositoryTest using Java 19.0.2 with PID 122700 (started by krystof in /home/krystof/tjv_semestralka)
+2023-12-28T15:59:42.493+01:00  INFO 122700 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : No active profile set, falling back to 1 default profile: "default"
+2023-12-28T15:59:42.837+01:00  INFO 122700 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-28T15:59:42.884+01:00  INFO 122700 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 3 JPA repository interfaces.
+2023-12-28T15:59:42.938+01:00  INFO 122700 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2023-12-28T15:59:43.000+01:00  INFO 122700 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:7a915832-5795-4b10-ade2-ed145147b21a;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-12-28T15:59:43.449+01:00  INFO 122700 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+Hibernate: create table employee (id bigint not null, birth_date date, first_name varchar(255), last_name varchar(255), primary key (id))
+Hibernate: create table order_not_keyword (id bigint not null, cost integer not null, date_of_payment date, vehicle_id bigint, primary key (id))
+Hibernate: create table order_not_keyword_employees (orders_id bigint not null, employees_id bigint not null)
+Hibernate: create table vehicle (id bigint not null, color varchar(255), equipment_level integer not null, spz varchar(255), primary key (id))
+Hibernate: create sequence employee_sequence start with 1 increment by 1
+Hibernate: create sequence order_sequence start with 1 increment by 1
+Hibernate: create sequence vehicle_sequence start with 1 increment by 1
+Hibernate: alter table if exists order_not_keyword add constraint FK4au0fwbn1n5k1u7031bwg584a foreign key (vehicle_id) references vehicle
+Hibernate: alter table if exists order_not_keyword_employees add constraint FK6n5l2m6g378m845uw7kdbo89m foreign key (employees_id) references employee
+Hibernate: alter table if exists order_not_keyword_employees add constraint FK5l6sspf4e8de2sxcndk64psgp foreign key (orders_id) references order_not_keyword
+2023-12-28T15:59:43.724+01:00  INFO 122700 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-28T15:59:43.908+01:00  INFO 122700 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : Started EmployeeRepositoryTest in 1.468 seconds (process running for 13.909)
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 order by o1_0.id
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select nextval('order_sequence')
+Hibernate: select nextval('order_sequence')
+Hibernate: select nextval('order_sequence')
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,v1_0.id,v1_0.color,v1_0.equipment_level,v1_0.spz,e1_0.orders_id,e1_1.id,e1_1.birth_date,e1_1.first_name,e1_1.last_name from order_not_keyword o1_0 left join vehicle v1_0 on v1_0.id=o1_0.vehicle_id left join (order_not_keyword_employees e1_0 join employee e1_1 on e1_1.id=e1_0.employees_id) on o1_0.id=e1_0.orders_id where o1_0.id=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,v1_0.id,v1_0.color,v1_0.equipment_level,v1_0.spz,e1_0.orders_id,e1_1.id,e1_1.birth_date,e1_1.first_name,e1_1.last_name from order_not_keyword o1_0 left join vehicle v1_0 on v1_0.id=o1_0.vehicle_id left join (order_not_keyword_employees e1_0 join employee e1_1 on e1_1.id=e1_0.employees_id) on o1_0.id=e1_0.orders_id where o1_0.id=?
+Hibernate: insert into order_not_keyword (cost,date_of_payment,vehicle_id,id) values (?,?,?,?)
+Hibernate: insert into order_not_keyword (cost,date_of_payment,vehicle_id,id) values (?,?,?,?)
+Hibernate: insert into order_not_keyword (cost,date_of_payment,vehicle_id,id) values (?,?,?,?)
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

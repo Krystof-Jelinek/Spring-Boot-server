@@ -15,7 +15,6 @@ public interface VehicleRepository extends CrudRepository<Vehicle, Long>{
     @Override
     @Query("SELECT v FROM Vehicle v ORDER BY v.id ASC")
     Iterable<Vehicle> findAll();
-
     
     @Transactional
     @Modifying
@@ -31,6 +30,5 @@ public interface VehicleRepository extends CrudRepository<Vehicle, Long>{
     @Modifying
     @Query("DELETE FROM Vehicle v WHERE v.id NOT IN (SELECT DISTINCT o.vehicle.id FROM Order o WHERE o.vehicle.id IS NOT NULL)")
     void deleteVehiclesThatAreNotInAnyOrder();
-
 
 }

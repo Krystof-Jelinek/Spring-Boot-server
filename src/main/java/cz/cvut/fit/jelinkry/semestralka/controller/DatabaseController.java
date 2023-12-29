@@ -17,7 +17,13 @@ public class DatabaseController {
 
     @PostMapping("/database")
     public ResponseEntity<String> executeDataScript() {
-        databaseService.executeDataScript();
-        return ResponseEntity.ok("Data script executed successfully");
+        try{
+            databaseService.executeDataScript();
+            return ResponseEntity.ok("Data script executed successfully");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return ResponseEntity.internalServerError().body("Failed to execute data script: " + e.getMessage());
+        }
     }
 }

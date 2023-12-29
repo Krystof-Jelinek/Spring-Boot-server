@@ -16,19 +16,21 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation group: 'org.springframework', name: 'spring-context', version: '6.0.13'
-    implementation group: 'org.hibernate', name: 'hibernate-core', version: '6.3.1.Final'
-    implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '3.1.5'
-    testRuntimeOnly group: 'com.h2database', name: 'h2', version: '2.2.224'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-web-services'
-	implementation 'com.fasterxml.jackson.core:jackson-databind'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.postgresql:postgresql:42.2.24'
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+	implementation 'org.springframework.boot:spring-boot-starter' //core dependencies for spring
+	implementation 'org.springframework.boot:spring-boot-starter-web' //starter for building web apps
+	implementation 'com.fasterxml.jackson.core:jackson-databind' //library for JSON processing
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // for Spring Data JPA including hibernate
+	implementation 'org.postgresql:postgresql:42.2.24' //spring JDBC Driver for PostgreSQL
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0' //documentation
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools' //only for development, automatic restart during develpment and so on
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' // dependecies for testing code
+    testRuntimeOnly group: 'com.h2database', name: 'h2', version: '2.2.224' // in-memory database for tests
+	
+    //implementation group: 'org.hibernate', name: 'hibernate-core', version: '6.3.1.Final' -- redundant because of spring-data-jpa
+	//implementation group: 'org.springframework', name: 'spring-context', version: '6.0.13'
+    //implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '3.1.5'
+	//implementation 'org.springframework.boot:spring-boot-starter-web-services'
 }
 
 tasks.named('test') {

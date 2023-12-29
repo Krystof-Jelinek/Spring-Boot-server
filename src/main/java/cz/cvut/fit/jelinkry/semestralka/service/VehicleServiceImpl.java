@@ -35,7 +35,7 @@ public class VehicleServiceImpl extends CrudServiceImpl<Vehicle, Long> implement
     @Override
     public void deleteById(Long id) {
         if(!vehicleRepository.existsById(id)){
-            throw new IllegalArgumentException("Entity with ID " + id + " not found");
+            throw new IllegalArgumentException("Vehicle with ID " + id + " not found");
         }
         setVehicleWithIdToNull(id);
         vehicleRepository.deleteById(id);

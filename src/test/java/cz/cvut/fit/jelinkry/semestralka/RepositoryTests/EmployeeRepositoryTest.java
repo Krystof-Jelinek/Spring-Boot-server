@@ -13,13 +13,11 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.TestPropertySource;
 
 import cz.cvut.fit.jelinkry.semestralka.domain.Order;
 import cz.cvut.fit.jelinkry.semestralka.repository.OrderRepository;
 
 @DataJpaTest
-@TestPropertySource(properties = "spring.datasource.url=jdbc:h2:mem:testdb")
 public class EmployeeRepositoryTest {
     
     @Autowired

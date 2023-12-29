@@ -26,10 +26,10 @@ public class EmployeeOrderRelationController {
             employeeOrderRelationService.addOrderToEmployee(employeeId, orderId);
         }
         catch(IllegalArgumentException e){
-            return ResponseEntity.badRequest().body("There is no order or employee with this id");
+            return ResponseEntity.badRequest().body("There is no order or employee with these ids");
         }
         
-        return ResponseEntity.ok().body("Order with id" + orderId + " was added to employee with id "+ employeeId);
+        return ResponseEntity.ok().body("Order with id " + orderId + " was added to employee with id " + employeeId);
     }
 
     @DeleteMapping("/employee/order/{employeeId}/{orderId}")
@@ -41,7 +41,7 @@ public class EmployeeOrderRelationController {
             return ResponseEntity.badRequest().body("There is no order or employee with this id");
         }
         
-        return ResponseEntity.ok().body("Order with id" + orderId + " was removed from employee with id "+ employeeId);
+        return ResponseEntity.ok().body("Order with id " + orderId + " was removed from employee with id "+ employeeId);
     }
 
 }

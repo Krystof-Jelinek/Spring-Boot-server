@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - EmployeeRepositoryTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>EmployeeRepositoryTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/cz.cvut.fit.jelinkry.semestralka.RepositoryTests.html">cz.cvut.fit.jelinkry.semestralka.RepositoryTests</a> &gt; EmployeeRepositoryTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.349s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">findByCostTest()</td>
+<td class="success">0.157s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">findByCostTestWhenRepoEmpty()</td>
+<td class="success">0.036s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">isRepositoryEmptyAtInicialization()</td>
+<td class="success">0.156s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2023-12-28T15:59:42.390+01:00  INFO 122700 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest]: EmployeeRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-12-28T15:59:42.435+01:00  INFO 122700 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration cz.cvut.fit.SemestralkaApplication for test class cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.7)
+
+2023-12-28T15:59:42.493+01:00  INFO 122700 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : Starting EmployeeRepositoryTest using Java 19.0.2 with PID 122700 (started by krystof in /home/krystof/tjv_semestralka)
+2023-12-28T15:59:42.493+01:00  INFO 122700 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-12-28T15:59:42.837+01:00  INFO 122700 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-28T15:59:42.884+01:00  INFO 122700 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 3 JPA repository interfaces.
+2023-12-28T15:59:42.938+01:00  INFO 122700 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2023-12-28T15:59:43.000+01:00  INFO 122700 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:7a915832-5795-4b10-ade2-ed145147b21a;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-12-28T15:59:43.449+01:00  INFO 122700 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+Hibernate: create table employee (id bigint not null, birth_date date, first_name varchar(255), last_name varchar(255), primary key (id))
+Hibernate: create table order_not_keyword (id bigint not null, cost integer not null, date_of_payment date, vehicle_id bigint, primary key (id))
+Hibernate: create table order_not_keyword_employees (orders_id bigint not null, employees_id bigint not null)
+Hibernate: create table vehicle (id bigint not null, color varchar(255), equipment_level integer not null, spz varchar(255), primary key (id))
+Hibernate: create sequence employee_sequence start with 1 increment by 1
+Hibernate: create sequence order_sequence start with 1 increment by 1
+Hibernate: create sequence vehicle_sequence start with 1 increment by 1
+Hibernate: alter table if exists order_not_keyword add constraint FK4au0fwbn1n5k1u7031bwg584a foreign key (vehicle_id) references vehicle
+Hibernate: alter table if exists order_not_keyword_employees add constraint FK6n5l2m6g378m845uw7kdbo89m foreign key (employees_id) references employee
+Hibernate: alter table if exists order_not_keyword_employees add constraint FK5l6sspf4e8de2sxcndk64psgp foreign key (orders_id) references order_not_keyword
+2023-12-28T15:59:43.724+01:00  INFO 122700 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-28T15:59:43.908+01:00  INFO 122700 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : Started EmployeeRepositoryTest in 1.468 seconds (process running for 13.909)
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 order by o1_0.id
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select nextval('order_sequence')
+Hibernate: select nextval('order_sequence')
+Hibernate: select nextval('order_sequence')
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,v1_0.id,v1_0.color,v1_0.equipment_level,v1_0.spz,e1_0.orders_id,e1_1.id,e1_1.birth_date,e1_1.first_name,e1_1.last_name from order_not_keyword o1_0 left join vehicle v1_0 on v1_0.id=o1_0.vehicle_id left join (order_not_keyword_employees e1_0 join employee e1_1 on e1_1.id=e1_0.employees_id) on o1_0.id=e1_0.orders_id where o1_0.id=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,v1_0.id,v1_0.color,v1_0.equipment_level,v1_0.spz,e1_0.orders_id,e1_1.id,e1_1.birth_date,e1_1.first_name,e1_1.last_name from order_not_keyword o1_0 left join vehicle v1_0 on v1_0.id=o1_0.vehicle_id left join (order_not_keyword_employees e1_0 join employee e1_1 on e1_1.id=e1_0.employees_id) on o1_0.id=e1_0.orders_id where o1_0.id=?
+Hibernate: insert into order_not_keyword (cost,date_of_payment,vehicle_id,id) values (?,?,?,?)
+Hibernate: insert into order_not_keyword (cost,date_of_payment,vehicle_id,id) values (?,?,?,?)
+Hibernate: insert into order_not_keyword (cost,date_of_payment,vehicle_id,id) values (?,?,?,?)
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.3</a> at Dec 28, 2023, 3:59:47 PM</p>
+</div>
+</div>
+</body>
+</html>
