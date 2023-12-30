@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-29T20:47:04" hostname="DESKTOP-OJPVQMS" time="0.757">
+<testsuite name="cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-12-30T11:46:21" hostname="debian-dell" time="2.278">
   <properties/>
-  <testcase name="contextLoads()" classname="cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests" time="0.757"/>
-  <system-out><![CDATA[21:46:57.968 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests]: SemestralkaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-21:46:58.107 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration cz.cvut.fit.SemestralkaApplication for test class cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests
+  <testcase name="contextLoads()" classname="cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests" time="2.278"/>
+  <system-out><![CDATA[12:45:52.054 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests]: SemestralkaApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:45:52.823 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration cz.cvut.fit.SemestralkaApplication for test class cz.cvut.fit.jelinkry.semestralka.SemestralkaApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -13,17 +13,17 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.1.7)
 
-2023-12-29T21:46:58.493+01:00  INFO 234522 --- [    Test worker] c.c.f.j.s.SemestralkaApplicationTests    : Starting SemestralkaApplicationTests using Java 19.0.2 with PID 234522 (started by krystof in /home/krystof/tjv_semestralka)
-2023-12-29T21:46:58.495+01:00  INFO 234522 --- [    Test worker] c.c.f.j.s.SemestralkaApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2023-12-29T21:46:59.375+01:00  INFO 234522 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-12-29T21:46:59.438+01:00  INFO 234522 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 3 JPA repository interfaces.
-2023-12-29T21:47:00.200+01:00  INFO 234522 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-12-29T21:47:00.228+01:00  INFO 234522 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-12-29T21:47:01.197+01:00  INFO 234522 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4b3ad7ca
-2023-12-29T21:47:01.199+01:00  INFO 234522 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-12-29T21:47:02.634+01:00  INFO 234522 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-12-29T21:47:02.934+01:00  INFO 234522 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-12-29T21:47:04.277+01:00  INFO 234522 --- [    Test worker] c.c.f.j.s.SemestralkaApplicationTests    : Started SemestralkaApplicationTests in 6.007 seconds (process running for 7.583)
+2023-12-30T12:45:55.317+01:00  INFO 28696 --- [    Test worker] c.c.f.j.s.SemestralkaApplicationTests    : Starting SemestralkaApplicationTests using Java 17.0.7 with PID 28696 (started by krystof in /home/krystof/tjv_semestralka)
+2023-12-30T12:45:55.330+01:00  INFO 28696 --- [    Test worker] c.c.f.j.s.SemestralkaApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2023-12-30T12:46:00.145+01:00  INFO 28696 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-30T12:46:00.595+01:00  INFO 28696 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 393 ms. Found 3 JPA repository interfaces.
+2023-12-30T12:46:05.448+01:00  INFO 28696 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-30T12:46:05.514+01:00  INFO 28696 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-12-30T12:46:07.191+01:00  INFO 28696 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6ace919c
+2023-12-30T12:46:07.207+01:00  INFO 28696 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-12-30T12:46:12.870+01:00  INFO 28696 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-30T12:46:14.772+01:00  INFO 28696 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-12-30T12:46:21.239+01:00  INFO 28696 --- [    Test worker] c.c.f.j.s.SemestralkaApplicationTests    : Started SemestralkaApplicationTests in 27.563 seconds (process running for 34.367)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

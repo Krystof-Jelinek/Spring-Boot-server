@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.236s</div>
+<div class="counter">1.264s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,17 +79,17 @@
 </thead>
 <tr>
 <td class="success">findByCostTest()</td>
-<td class="success">0.097s</td>
+<td class="success">0.557s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">findByCostTestWhenRepoEmpty()</td>
-<td class="success">0.024s</td>
+<td class="success">0.188s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">isRepositoryEmptyAtInicialization()</td>
-<td class="success">0.115s</td>
+<td class="success">0.519s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -97,8 +97,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-12-29T21:47:06.048+01:00  INFO 234522 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest]: EmployeeRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-12-29T21:47:06.077+01:00  INFO 234522 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration cz.cvut.fit.SemestralkaApplication for test class cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest
+<pre>2023-12-30T12:46:29.721+01:00  INFO 28696 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest]: EmployeeRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-12-30T12:46:29.922+01:00  INFO 28696 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration cz.cvut.fit.SemestralkaApplication for test class cz.cvut.fit.jelinkry.semestralka.RepositoryTests.EmployeeRepositoryTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -108,13 +108,13 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.1.7)
 
-2023-12-29T21:47:06.124+01:00  INFO 234522 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : Starting EmployeeRepositoryTest using Java 19.0.2 with PID 234522 (started by krystof in /home/krystof/tjv_semestralka)
-2023-12-29T21:47:06.125+01:00  INFO 234522 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-12-29T21:47:06.258+01:00  INFO 234522 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-12-29T21:47:06.277+01:00  INFO 234522 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 3 JPA repository interfaces.
-2023-12-29T21:47:06.299+01:00  INFO 234522 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2023-12-29T21:47:06.324+01:00  INFO 234522 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:652f9e34-23ec-4235-8cbc-b06dcef21c63;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2023-12-29T21:47:06.951+01:00  INFO 234522 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-30T12:46:30.345+01:00  INFO 28696 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : Starting EmployeeRepositoryTest using Java 17.0.7 with PID 28696 (started by krystof in /home/krystof/tjv_semestralka)
+2023-12-30T12:46:30.346+01:00  INFO 28696 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-12-30T12:46:31.310+01:00  INFO 28696 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-30T12:46:31.431+01:00  INFO 28696 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100 ms. Found 3 JPA repository interfaces.
+2023-12-30T12:46:31.579+01:00  INFO 28696 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2023-12-30T12:46:31.773+01:00  INFO 28696 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:b441f8dc-7578-4672-a065-575d03542217;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-12-30T12:46:32.830+01:00  INFO 28696 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
 Hibernate: create table employee (id bigint not null, birth_date date, first_name varchar(255), last_name varchar(255), primary key (id))
 Hibernate: create table order_not_keyword (id bigint not null, cost integer not null, date_of_payment date, vehicle_id bigint, primary key (id))
 Hibernate: create table order_not_keyword_employees (orders_id bigint not null, employees_id bigint not null)
@@ -125,8 +125,8 @@ Hibernate: create sequence vehicle_sequence start with 1 increment by 1
 Hibernate: alter table if exists order_not_keyword add constraint FK4au0fwbn1n5k1u7031bwg584a foreign key (vehicle_id) references vehicle
 Hibernate: alter table if exists order_not_keyword_employees add constraint FK6n5l2m6g378m845uw7kdbo89m foreign key (employees_id) references employee
 Hibernate: alter table if exists order_not_keyword_employees add constraint FK5l6sspf4e8de2sxcndk64psgp foreign key (orders_id) references order_not_keyword
-2023-12-29T21:47:07.160+01:00  INFO 234522 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-12-29T21:47:07.310+01:00  INFO 234522 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : Started EmployeeRepositoryTest in 1.229 seconds (process running for 10.616)
+2023-12-30T12:46:33.688+01:00  INFO 28696 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-30T12:46:34.574+01:00  INFO 28696 --- [    Test worker] c.c.f.j.s.R.EmployeeRepositoryTest       : Started EmployeeRepositoryTest in 4.619 seconds (process running for 47.702)
 Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 order by o1_0.id
 Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from order_not_keyword o1_0 where o1_0.cost=?
 Hibernate: select nextval('order_sequence')
@@ -156,7 +156,7 @@ Hibernate: select o1_0.id,o1_0.cost,o1_0.date_of_payment,o1_0.vehicle_id from or
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.3</a> at Dec 29, 2023, 9:47:15 PM</p>
+<a href="http://www.gradle.org">Gradle 8.3</a> at Dec 30, 2023, 12:46:42 PM</p>
 </div>
 </div>
 </body>

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.217s</div>
+<div class="counter">0.189s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">addOrderToEmployeeInvalidEmployeeIdThrowsException()</td>
-<td class="success">0.005s</td>
+<td class="success">0.013s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">addOrderToEmployeeInvalidOrderIdAndEmployeeIdThrowsException()</td>
-<td class="success">0.194s</td>
+<td class="success">0.037s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">addOrderToEmployeeInvalidOrderIdThrowsException()</td>
-<td class="success">0.006s</td>
+<td class="success">0.033s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">addOrderToEmployeeSuccess()</td>
-<td class="success">0.012s</td>
+<td class="success">0.106s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,8 +102,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2023-12-29T21:47:07.559+01:00  INFO 234522 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [cz.cvut.fit.jelinkry.semestralka.ServiceTests.EmployeeOrderRelationServiceTest]: EmployeeOrderRelationServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-12-29T21:47:07.569+01:00  INFO 234522 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration cz.cvut.fit.SemestralkaApplication for test class cz.cvut.fit.jelinkry.semestralka.ServiceTests.EmployeeOrderRelationServiceTest
+<pre>2023-12-30T12:46:35.912+01:00  INFO 28696 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [cz.cvut.fit.jelinkry.semestralka.ServiceTests.EmployeeOrderRelationServiceTest]: EmployeeOrderRelationServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-12-30T12:46:36.012+01:00  INFO 28696 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration cz.cvut.fit.SemestralkaApplication for test class cz.cvut.fit.jelinkry.semestralka.ServiceTests.EmployeeOrderRelationServiceTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -113,16 +113,16 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.1.7)
 
-2023-12-29T21:47:07.595+01:00  INFO 234522 --- [    Test worker] f.j.s.S.EmployeeOrderRelationServiceTest : Starting EmployeeOrderRelationServiceTest using Java 19.0.2 with PID 234522 (started by krystof in /home/krystof/tjv_semestralka)
-2023-12-29T21:47:07.595+01:00  INFO 234522 --- [    Test worker] f.j.s.S.EmployeeOrderRelationServiceTest : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-12-29T21:47:07.801+01:00  INFO 234522 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-12-29T21:47:07.810+01:00  INFO 234522 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 3 JPA repository interfaces.
-2023-12-29T21:47:08.103+01:00  INFO 234522 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-12-29T21:47:08.104+01:00  INFO 234522 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-12-29T21:47:08.497+01:00  INFO 234522 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@7261773c
-2023-12-29T21:47:08.497+01:00  INFO 234522 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-12-29T21:47:09.491+01:00  INFO 234522 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-12-29T21:47:11.984+01:00  INFO 234522 --- [    Test worker] f.j.s.S.EmployeeOrderRelationServiceTest : Started EmployeeOrderRelationServiceTest in 4.411 seconds (process running for 15.29)
+2023-12-30T12:46:36.247+01:00  INFO 28696 --- [    Test worker] f.j.s.S.EmployeeOrderRelationServiceTest : Starting EmployeeOrderRelationServiceTest using Java 17.0.7 with PID 28696 (started by krystof in /home/krystof/tjv_semestralka)
+2023-12-30T12:46:36.247+01:00  INFO 28696 --- [    Test worker] f.j.s.S.EmployeeOrderRelationServiceTest : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-12-30T12:46:37.544+01:00  INFO 28696 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-30T12:46:37.602+01:00  INFO 28696 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 3 JPA repository interfaces.
+2023-12-30T12:46:38.923+01:00  INFO 28696 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-30T12:46:38.949+01:00  INFO 28696 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-12-30T12:46:39.522+01:00  INFO 28696 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@8814bb5
+2023-12-30T12:46:39.523+01:00  INFO 28696 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-12-30T12:46:40.421+01:00  INFO 28696 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-30T12:46:41.958+01:00  INFO 28696 --- [    Test worker] f.j.s.S.EmployeeOrderRelationServiceTest : Started EmployeeOrderRelationServiceTest in 5.913 seconds (process running for 55.086)
 </pre>
 </span>
 </div>
@@ -134,7 +134,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.3</a> at Dec 29, 2023, 9:47:15 PM</p>
+<a href="http://www.gradle.org">Gradle 8.3</a> at Dec 30, 2023, 12:46:42 PM</p>
 </div>
 </div>
 </body>
