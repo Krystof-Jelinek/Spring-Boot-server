@@ -30,4 +30,7 @@ komunikace mezi aplikacemi a mezi databází a serverem by měla být příprave
 Používání čistě serveru pomocí api je zdokumentováno pomocí openAPI a je případně dostupné na adrese http://localhost:9000/swagger-ui/index.html
 
 používání klienta:
+
+pro vývoj klienta byl používán google chrome prohlížeč tedy doporučuji použít právě ten.
+
 klient nabízí 3 tabulky kde jsou zobrazeny všechny entity s kterými aplikace pracuje. Každý řádek navíc u sebe má možnosti pro smazání entity (koš) pro úpravu (tužka) a žluté tlačítko seznamu zobrazí entity se kterými má tento řádek nějakou vazbu - V případě zaměstnance zobrazí všechny objednávky které zaměstnanec zpracoval - V případě objednávky všechny zaměstnance kteří danou objednávku zpracovávali - V případě vozidla všechny objednávky ve kterých se vozidlo vyskytlo. U objednávky a zaměstnance lze zadat id druhé entity a tím ji přidat/odebrat (manipulace s M:N vazbou). V levo nahoře u každé tabulky je zelené tlačítko + které umožňuje přidat novou entitu. Při zakliknutí tabulky pro vozidla se dole objeví velké červené tlačítko které realizuje advanced dotaz. V poslední řadě nahoře v levo se nachazí tlačítko kterým je možné resetovat stav databáze a zároveň dojde k vložení ukázkových dat (pro snazší vyzkoušení aplikace). Případě je možné již pouze pomocí api zaslat DELETE na adresu localhost/database což smaže všechny záznamy ze všech tabulek (pro tuto akci se v klientovi tlačítko již nenachází).
