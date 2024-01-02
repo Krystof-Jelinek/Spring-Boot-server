@@ -14,6 +14,7 @@ gradle
 
 stačí spustit server ./gradlew bootRun (ten běží na adrese localhost a na portu 9000)
 následně spustit klienta ./gradlew bootRun (ten běží na adrese localhost a na portu 8080)
+(v kořenových adresářích projektů)
 
 Je také možnost spustit server i klienta pomocí dockeru.
 (sudo) docker build -t server .
@@ -25,6 +26,7 @@ následně spustit jednotlivé kontejnery
 (sudo) docker run -p 8080:8080 klient
 server by nyní měl běžet na localhost:9000
 klient by nyní měl běžet na localhost:8080
+(edit: při spuštění pomocí dockeru tak image v sobě nemá k dispozici script pro resetování/smazání dat a tyto funkcionality tedy bohužel nefungují)
 
 komunikace mezi aplikacemi a mezi databází a serverem by měla být přípravena a nakonfigurována.
 Používání čistě serveru pomocí api je zdokumentováno pomocí openAPI a je případně dostupné na adrese http://localhost:9000/swagger-ui/index.html
